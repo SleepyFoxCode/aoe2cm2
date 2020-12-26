@@ -62,6 +62,7 @@ class PlayerDraftState extends React.Component<IProps, IState> {
                     picksIndex++;
                     pickPanels.push(React.createElement(CivPanel, {
                         active: isThisPanelActive,
+                        byOpponent: turn.player !== turn.executingPlayer,
                         civPanelType: CivPanelType.PICK,
                         civilisation: pickedCiv,
                         key: picksIndex,
@@ -75,6 +76,7 @@ class PlayerDraftState extends React.Component<IProps, IState> {
                     bansIndex++;
                     banPanels.push(React.createElement(CivPanel, {
                         active: isThisPanelActive,
+                        byOpponent: turn.player !== turn.executingPlayer,
                         civPanelType: CivPanelType.BAN,
                         civilisation: bannedCiv,
                         key: bansIndex,

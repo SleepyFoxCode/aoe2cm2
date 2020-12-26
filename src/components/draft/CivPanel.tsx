@@ -19,6 +19,7 @@ interface IProps extends WithTranslation {
     civPanelType: CivPanelType;
     whoAmI?: Player;
     triggerAction?: ActionType;
+    byOpponent?: boolean;
     player?: Player;
     draft?: IDraftState;
     nextAction: number;
@@ -58,6 +59,9 @@ class CivPanel extends React.Component<IProps, IState> {
             }
         }
         let className: string = this.props.civPanelType.toString();
+        if (this.props.byOpponent) {
+            className += ' by-opponent';
+        }
         let onClickAction = () => {
         };
         if (this.props.civPanelType === CivPanelType.CHOICE) {
